@@ -4,9 +4,10 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { CategoriesModule } from './categories/categories.module'
-import { MoviesModule } from './movies/movies.module';
-import { CommentsModule } from './comments/comments.module';
-import { ActorsModule } from './actors/actors.module';
+import { MoviesModule } from './movies/movies.module'
+import { CommentsModule } from './comments/comments.module'
+import { ActorsModule } from './actors/actors.module'
+import { UserModule } from './user/user.module';
 
 @Module({
 	imports: [
@@ -31,7 +32,8 @@ import { ActorsModule } from './actors/actors.module';
 		CategoriesModule,
 		MoviesModule,
 		CommentsModule,
-		ActorsModule
+		ActorsModule,
+		UserModule
 	],
 	controllers: [AppController],
 	providers: [AppService]
