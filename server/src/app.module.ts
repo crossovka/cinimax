@@ -7,7 +7,8 @@ import { CategoriesModule } from './categories/categories.module'
 import { MoviesModule } from './movies/movies.module'
 import { CommentsModule } from './comments/comments.module'
 import { ActorsModule } from './actors/actors.module'
-import { UserModule } from './user/user.module';
+import { UserModule } from './user/user.module'
+import { AuthModule } from './auth/auth.module'
 
 @Module({
 	imports: [
@@ -33,7 +34,8 @@ import { UserModule } from './user/user.module';
 		MoviesModule,
 		CommentsModule,
 		ActorsModule,
-		UserModule
+		UserModule,
+		AuthModule
 	],
 	controllers: [AppController],
 	providers: [AppService]
