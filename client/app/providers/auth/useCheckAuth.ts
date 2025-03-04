@@ -15,20 +15,20 @@ export const useCheckAuth = (routeName?: string) => {
 
 	useEffect(() => {
 		const checkAccessToken = async () => {
-			try {
-				const accessToken = await getAccessToken()
-				if (accessToken) {
+			const accessToken = await getAccessToken()
+			if (accessToken) {
+				try {
 					await getNewTokens()
-				}
-			} catch (e) {
-				if (errorCatch(e) === 'jwt expired') {
-					await AuthService.logout()
-					setUser(null)
+				} catch (e) {
+					if (errorCatch(e) === 'jwt expired') {
+						await AuthService.logout()
+						setUser(null)
+					}
 				}
 			}
 		}
 
-		checkAccessToken()
+		let ignore = checkAccessToken()
 	}, [])
 
 	useEffect(() => {
@@ -42,6 +42,6 @@ export const useCheckAuth = (routeName?: string) => {
 			}
 		}
 
-		checkRefreshToken()
-	}, [routeName, user]) // Добавил user в зависимости, чтобы эффект срабатывал при изменении состояния
+		let ignore = checkRefreshToken()
+	}, [routeName])
 }

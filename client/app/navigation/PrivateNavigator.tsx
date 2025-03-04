@@ -11,14 +11,15 @@ import { routes } from './routes'
 const Stack = createNativeStackNavigator<TypeRootStackParamList>()
 
 const PrivateNavigator: FC = () => {
-	const { user } = useAuth()
+	// const { user } = useAuth()
+	const user = true
 
 	return (
 		<Stack.Navigator
 			screenOptions={{
 				headerShown: false,
 				contentStyle: {
-					backgroundColor: '#ffffff'
+					backgroundColor: '#1F1D2B'
 				}
 			}}
 		>

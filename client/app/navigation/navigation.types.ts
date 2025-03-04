@@ -4,6 +4,8 @@ export type TypeRootStackParamList = {
 	Auth: undefined
 	Home: undefined
 	Download: undefined
+	Profile: undefined
+	Search: undefined
 	// Category: {
 	// 	slug: string
 	// }

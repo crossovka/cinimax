@@ -3,8 +3,7 @@ module.exports = function (api) {
 	return {
 		presets: ['babel-preset-expo'],
 		plugins: [
-			// 'nativewind/babel',
-			// 'inline-dotenv',
+			['module:react-native-dotenv'], // Добавляем поддержку .env
 			[
 				'babel-plugin-root-import',
 				{

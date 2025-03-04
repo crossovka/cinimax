@@ -1,7 +1,18 @@
 const { getDefaultConfig } = require('expo/metro-config')
 
-module.exports = (async () => {
-	const defaultConfig = await getDefaultConfig(__dirname)
-	defaultConfig.resolver.assetExts.push('png') // Добавляем PNG в ассеты
-	return defaultConfig
+module.exports = (() => {
+	const config = getDefaultConfig(__dirname)
+	const { transformer, resolver } = config
+
+	config.transformer = {
+		...transformer,
+		babelTransformerPath: require.resolve('react-native-svg-transformer')
+	}
+	config.resolver = {
+		...resolver,
+		assetExts: resolver.assetExts.filter(ext => ext !== 'svg'),
+		sourceExts: [...resolver.sourceExts, 'svg']
+	}
+
+	return config
 })()

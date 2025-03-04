@@ -5,11 +5,11 @@ import Layout from '@/components/layout/Layout'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
-const Download: FC = () => {
+const Profile: FC = () => {
 	const navigation = useTypedNavigation()
 	return (
 		<Layout>
-			<Text>Download</Text>
+			<Text>Profile</Text>
 			<Pressable onPress={() => navigation.navigate('Home')}>
 				<Text>Go to Home</Text>
 			</Pressable>
@@ -17,4 +17,4 @@ const Download: FC = () => {
 	)
 }
 
-export default Download
+export default Profile

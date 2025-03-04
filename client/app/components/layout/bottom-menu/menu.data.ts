@@ -1,27 +1,27 @@
-import { IMenuItem } from './menu.interface'
+import DownloadIcon from '../../../../assets/icons/download.svg'
+import HomeIcon from '../../../../assets/icons/home.svg'
+import ProfileIcon from '../../../../assets/icons/profile.svg'
+import SearchIcon from '../../../../assets/icons/search.svg'
 
 export const menuItems: IMenuItem[] = [
 	{
-		// iconName: require('@assets/images/home.png'),
-		iconName: 'search',
-		path: 'Home'
+		iconName: 'home',
+		path: 'Home',
+		iconSource: HomeIcon // ✅ Use SVG component
 	},
 	{
-		// iconName: require('../../../../assets/images/home.png'),
-		// iconName: require('@assets/images/home.png'),
 		iconName: 'search',
-		path: 'Download'
+		path: 'Search',
+		iconSource: SearchIcon
+	},
+	{
+		iconName: 'download',
+		path: 'Download',
+		iconSource: DownloadIcon
+	},
+	{
+		iconName: 'profile',
+		path: 'Profile',
+		iconSource: ProfileIcon
 	}
-	// {
-	// 	iconName: 'search',
-	// 	path: 'Search'
-	// },
-	// {
-	// 	iconName: 'download',
-	// 	path: 'Download'
-	// },
-	// {
-	// 	iconName: 'profile',
-	// 	path: 'Profile'
-	// },
 ]

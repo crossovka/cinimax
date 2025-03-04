@@ -8,22 +8,17 @@ import { menuItems } from './menu.data'
 import { TypeNavigate } from './menu.interface'
 
 interface IBottomMenu {
-	navigation: TypeNavigate // Функция для навигации
+	nav: TypeNavigate
 	currentRoute?: string
 }
 
-const BottomMenu: FC<IBottomMenu> = ({ navigation, currentRoute }) => {
+const BottomMenu: FC<IBottomMenu> = props => {
 	const { bottom } = useSafeAreaInsets()
 
 	return (
 		<View style={[styles.container, { paddingBottom: bottom + 20 }]}>
 			{menuItems.map(item => (
-				<MenuItem
-					key={item.path}
-					item={item}
-					nav={navigation}
-					currentRoute={currentRoute}
-				/>
+				<MenuItem key={item.path} item={item} {...props} />
 			))}
 		</View>
 	)
