@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import {
 	ActivityIndicator,
 	Pressable,
@@ -7,23 +7,20 @@ import {
 	View
 } from 'react-native'
 
-import { useCategories } from './useCategories'
-
 import styles from './Categories.styles'
+import { useCategories } from './useCategories'
 
 interface CategoriesProps {
 	activeCategory: string
-	onCategoryPress: (category: string) => void
+	onCategoryPress: (categorySlug: string) => void
 }
 
 const Categories: FC<CategoriesProps> = ({
 	activeCategory,
 	onCategoryPress
 }) => {
-	// Используем хук useCategories для получения категорий внутри компонента
 	const { isLoading, categories } = useCategories()
 
-	// Если данные загружаются, показываем индикатор загрузки
 	if (isLoading) {
 		return (
 			<View style={{ padding: 16 }}>
@@ -38,19 +35,38 @@ const Categories: FC<CategoriesProps> = ({
 			contentContainerStyle={styles.container}
 			showsHorizontalScrollIndicator={false}
 		>
+			{/* Кнопка "Все" */}
+			<Pressable
+				style={[
+					styles.button,
+					activeCategory === 'all' && styles.active
+				]}
+				onPress={() => onCategoryPress('all')}
+			>
+				<Text
+					style={[
+						styles.text,
+						activeCategory === 'all' && styles.activeText
+					]}
+				>
+					Все
+				</Text>
+			</Pressable>
+
+			{/* Отображение категорий по slug */}
 			{categories?.map(category => (
 				<Pressable
-					key={category.name} // предполагаем, что у категории есть поле name
+					key={category.slug} // Используем slug как ключ
 					style={[
 						styles.button,
-						activeCategory === category.name && styles.active
+						activeCategory === category.slug && styles.active
 					]}
-					onPress={() => onCategoryPress(category.name)}
+					onPress={() => onCategoryPress(category.slug)}
 				>
 					<Text
 						style={[
 							styles.text,
-							activeCategory === category.name &&
+							activeCategory === category.slug &&
 								styles.activeText
 						]}
 					>

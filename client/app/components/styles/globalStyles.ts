@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-import { TEXT_COLORS } from '../layout/variables'
+import { TEXT_COLORS } from '../../styles/variables'
 
 const globalStyles = StyleSheet.create({
 	paragraph: {

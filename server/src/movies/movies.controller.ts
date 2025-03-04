@@ -31,4 +31,9 @@ export class MoviesController {
 	remove(@Param('slug') slug: string) {
 		return this.moviesService.remove(slug)
 	}
+
+	@Get('category/:categorySlug')
+	findByCategory(@Param('categorySlug') categorySlug: string) {
+		return this.moviesService.findByCategorySlug(categorySlug)
+	}
 }

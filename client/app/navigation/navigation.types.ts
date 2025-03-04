@@ -6,6 +6,7 @@ export type TypeRootStackParamList = {
 	Download: undefined
 	Profile: undefined
 	Search: undefined
+	MovieDetails: { slug: string }
 	// Category: {
 	// 	slug: string
 	// }

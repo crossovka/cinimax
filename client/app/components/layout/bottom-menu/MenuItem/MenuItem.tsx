@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Pressable, Text } from 'react-native'
 
-import { PRIMARY_COLORS } from '../../variables'
+import { PRIMARY_COLORS } from '../../../../styles/variables'
 import { IMenuItem, TypeNavigate } from '../menu.interface'
 
 import styles from './MenuItem.styles'

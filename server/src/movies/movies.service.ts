@@ -96,4 +96,15 @@ export class MoviesService {
 		const movie = await this.findOne(slug) // Проверка на существование фильма
 		return this.movieRepository.delete({ slug })
 	}
+
+	async findByCategorySlug(categorySlug: string) {
+		const category = await this.categoryRepository.findOne({
+			where: { slug: categorySlug },
+			relations: ['movies']
+		})
+
+		throwIfNotFound(category, `Категория с slug "${categorySlug}" не найдена.`)
+
+		return category.movies
+	}
 }

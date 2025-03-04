@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-import { PRIMARY_COLORS, TEXT_COLORS } from '@/components/layout/variables'
+import { PRIMARY_COLORS, TEXT_COLORS } from '@/styles/variables'
 
 const styles = StyleSheet.create({
 	container: {

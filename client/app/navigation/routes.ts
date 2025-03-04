@@ -1,3 +1,4 @@
+import MovieDetails from '@/components/screens/MovieDetails/MovieDetails'
 import Auth from '@/components/screens/auth/Auth'
 import Download from '@/components/screens/download/Download'
 import Home from '@/components/screens/home/Home'
@@ -26,5 +27,9 @@ export const routes: IRoute[] = [
 	{
 		name: 'Profile',
 		component: Profile
+	},
+	{
+		name: 'MovieDetails',
+		component: MovieDetails
 	}
 ]
